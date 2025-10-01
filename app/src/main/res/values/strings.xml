@@ -32,4 +32,6 @@
     <string name="label_xp">XP</string>
     <string name="label_nickname">Nickname</string>
     <string name="btn_save">Save</string>
+    <string name="unlike">Unlike</string>
+
 </resources>

@@ -35,9 +35,9 @@ public class LeaderboardActivity extends AppCompatActivity {
     private void load() {
         // ForYou의 좋아요 상태를 읽어 정렬 (간단한 로컬 합산)
         leaders.clear();
-        leaders.add(new Post("p1","yena", Prefs.get(this).getInt("likes_p1", 12), R.mipmap.ic_launcher));
-        leaders.add(new Post("p2","memeQueen", Prefs.get(this).getInt("likes_p2", 3), R.mipmap.ic_launcher_round));
-        leaders.add(new Post("p3","cs_student", Prefs.get(this).getInt("likes_p3", 7), R.mipmap.ic_launcher));
+        leaders.add(new Post("p1","yena", Prefs.get(this).getInt("likes_p1", 12), R.mipmap.ic_launcher, false));
+        leaders.add(new Post("p2","memeQueen", Prefs.get(this).getInt("likes_p2", 3), R.mipmap.ic_launcher_round, false));
+        leaders.add(new Post("p3","cs_student", Prefs.get(this).getInt("likes_p3", 7), R.mipmap.ic_launcher, false));
 
         Collections.sort(leaders, Comparator.comparingInt(p -> -p.likes));
         adapter.notifyDataSetChanged();

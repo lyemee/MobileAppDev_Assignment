@@ -1,4 +1,4 @@
-package com.example.unimeme.adapter;
+package com.example.unimeme;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,19 +8,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.unimeme.Post;
-import com.example.unimeme.R;
-
 import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.VH> {
 
-    public interface OnLikeChanged { void onChanged(Post post, int newLikes); }
+    // ★ 콜백 시그니처 변경: 변경된 Post 전체를 넘김
+    public interface OnPostChanged { void onChanged(Post post); }
     private final List<Post> items;
-    private final OnLikeChanged cb;
+    private final OnPostChanged cb;
 
-    public PostAdapter(List<Post> items, OnLikeChanged cb) {
+    public PostAdapter(List<Post> items, OnPostChanged cb) {
         this.items = items; this.cb = cb;
     }
 
@@ -34,10 +31,25 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.VH> {
         h.tvUser.setText("@"+p.username);
         h.iv.setImageResource(p.imageRes);
         h.tvLikes.setText(h.itemView.getContext().getString(R.string.likes, p.likes));
+        // ★ 현재 상태에 따라 버튼 라벨
+        h.btnLike.setText(p.liked ? h.itemView.getContext().getString(R.string.unlike)
+                : h.itemView.getContext().getString(R.string.like));
+
         h.btnLike.setOnClickListener(v -> {
-            p.likes += 1;
+            if (p.liked) {
+                // 취소
+                if (p.likes > 0) p.likes -= 1;
+                p.liked = false;
+            } else {
+                // 좋아요
+                p.likes += 1;
+                p.liked = true;
+            }
+            // UI 반영
             h.tvLikes.setText(v.getContext().getString(R.string.likes, p.likes));
-            if (cb != null) cb.onChanged(p, p.likes);
+            h.btnLike.setText(p.liked ? v.getContext().getString(R.string.unlike)
+                    : v.getContext().getString(R.string.like));
+            if (cb != null) cb.onChanged(p);
         });
     }
 

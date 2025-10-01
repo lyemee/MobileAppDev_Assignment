@@ -8,9 +8,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.example.unimeme.adapter.PostAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,13 +25,16 @@ public class ForYouActivity extends AppCompatActivity {
         String username = sp.getString("key_username", "guest");
         header.setText(getString(R.string.for_you_title) + " — @" + username);
 
-        seedData(); // 목업 데이터
+        seedData();
 
         RecyclerView rv = findViewById(R.id.rvPosts);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(new PostAdapter(posts, (post, newLikes) -> {
-            post.likes = newLikes;
-            sp.edit().putInt("likes_" + post.id, newLikes).apply(); // 상태 저장
+        rv.setAdapter(new PostAdapter(posts, post -> {
+            // ★ 좋아요 수와 토글 상태를 모두 저장
+            sp.edit()
+                    .putInt("likes_" + post.id, post.likes)
+                    .putBoolean("liked_" + post.id, post.liked)
+                    .apply();
         }));
 
         Button toLb = findViewById(R.id.btnLeaderboard);
@@ -44,10 +44,24 @@ public class ForYouActivity extends AppCompatActivity {
     }
 
     private void seedData() {
-        // 이미지 리소스는 임시로 런처 아이콘 사용
         posts.clear();
-        posts.add(new Post("p1","yena", sp.getInt("likes_p1", 12), R.mipmap.ic_launcher));
-        posts.add(new Post("p2","memeQueen", sp.getInt("likes_p2", 3), R.mipmap.ic_launcher_round));
-        posts.add(new Post("p3","cs_student", sp.getInt("likes_p3", 7), R.mipmap.ic_launcher));
+        posts.add(new Post(
+                "p1","yena",
+                sp.getInt("likes_p1", 12),
+                R.mipmap.ic_launcher,
+                sp.getBoolean("liked_p1", false)
+        ));
+        posts.add(new Post(
+                "p2","memeQueen",
+                sp.getInt("likes_p2", 3),
+                R.mipmap.ic_launcher_round,
+                sp.getBoolean("liked_p2", false)
+        ));
+        posts.add(new Post(
+                "p3","cs_student",
+                sp.getInt("likes_p3", 7),
+                R.mipmap.ic_launcher,
+                sp.getBoolean("liked_p3", false)
+        ));
     }
 }
