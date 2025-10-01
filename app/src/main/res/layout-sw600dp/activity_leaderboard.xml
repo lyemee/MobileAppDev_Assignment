@@ -1,35 +1,50 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <LinearLayout
-        android:orientation="vertical" android:padding="@dimen/m_lg"
-        android:layout_width="match_parent" android:layout_height="wrap_content">
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:orientation="vertical" android:layout_gravity="center"
-            android:layout_width="@dimen/max_content_width" android:layout_height="wrap_content">
+        <TextView
+            android:text="@string/leaderboard_title"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-            <TextView
-                android:text="@string/title_leaderboard" android:textStyle="bold"
-                android:textSize="24sp"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@mipmap/ic_launcher_round"
+            android:contentDescription="@string/leaderboard_title"
+            android:layout_marginTop="8dp" />
 
-            <LinearLayout
-                android:orientation="horizontal" android:layout_marginTop="@dimen/m_sm"
-                android:layout_width="match_parent" android:layout_height="wrap_content">
-                <TextView
-                    android:text="@string/label_period"
-                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                <Spinner
-                    android:id="@+id/spPeriod"
-                    android:layout_width="0dp" android:layout_height="wrap_content"
-                    android:layout_weight="1" android:layout_marginStart="@dimen/m_sm"/>
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tvDummyRank"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/m_md"
-                android:textSize="@dimen/t_body"/>
-        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvLeaders"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:saveEnabled="true"
+            android:scrollbars="vertical" />
     </LinearLayout>
-</ScrollView>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="16dp">
+
+        <Button
+            android:id="@+id/btnRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/refresh" />
+    </LinearLayout>
+</LinearLayout>
