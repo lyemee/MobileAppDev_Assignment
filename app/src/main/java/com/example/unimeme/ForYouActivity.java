@@ -25,20 +25,28 @@ public class ForYouActivity extends AppCompatActivity {
         String username = sp.getString("key_username", "guest");
         header.setText(getString(R.string.for_you_title) + " — @" + username);
 
+        // Initialize posts
         seedData();
 
+        // Setup RecyclerView with PostAdapter
         RecyclerView rv = findViewById(R.id.rvPosts);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(new com.example.unimeme.PostAdapter(posts, post -> {
+        rv.setAdapter(new com.example.unimeme.adapter.PostAdapter(posts, post -> {
+            // Save likes/liked state persistently for each post
             sp.edit()
                     .putInt("likes_" + post.id, post.likes)
                     .putBoolean("liked_" + post.id, post.liked)
                     .apply();
         }));
 
+        // Navigation buttons
         Button toLb = findViewById(R.id.btnLeaderboard);
         Button toAcc = findViewById(R.id.btnAccount);
+
+        // Navigate to Leaderboard
         toLb.setOnClickListener(v -> startActivity(new Intent(this, LeaderboardActivity.class)));
+
+        // Navigate to Account settings
         toAcc.setOnClickListener(v -> startActivity(new Intent(this, AccountActivity.class)));
     }
 

@@ -27,6 +27,7 @@ public class LeaderboardActivity extends AppCompatActivity {
         adapter = new LeaderboardAdapter(leaders);
         rv.setAdapter(adapter);
 
+        // Refresh button reloads the leaderboard data
         Button refresh = findViewById(R.id.btnRefresh);
         refresh.setOnClickListener(v -> load());
         load();
@@ -38,6 +39,7 @@ public class LeaderboardActivity extends AppCompatActivity {
         leaders.add(new Post("p2","memeQueen", Prefs.get(this).getInt("likes_p2", 3), R.mipmap.ic_launcher_round, false));
         leaders.add(new Post("p3","cs_student", Prefs.get(this).getInt("likes_p3", 7), R.mipmap.ic_launcher, false));
 
+        // Sort posts by likes (highest first)
         Collections.sort(leaders, Comparator.comparingInt(p -> -p.likes));
         adapter.notifyDataSetChanged();
     }

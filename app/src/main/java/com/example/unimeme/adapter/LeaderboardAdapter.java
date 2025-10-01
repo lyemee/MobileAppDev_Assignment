@@ -13,21 +13,26 @@ import com.example.unimeme.R;
 
 import java.util.List;
 
+// Adapter for displaying leaderboard of posts
 public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.VH> {
+    // list of Post objects
     private final List<Post> data;
     public LeaderboardAdapter(List<Post> data) { this.data = data; }
 
+    //
     @NonNull @Override public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_2, parent, false);
         return new VH(v);
     }
 
+    // binds data to the views
     @Override public void onBindViewHolder(@NonNull VH h, int pos) {
         Post p = data.get(pos);
         h.title.setText((pos+1)+". @"+p.username);
         h.subtitle.setText(h.itemView.getContext().getString(R.string.likes, p.likes));
     }
 
+    // return the number of items in the list
     @Override public int getItemCount() { return data.size(); }
 
     static class VH extends RecyclerView.ViewHolder {

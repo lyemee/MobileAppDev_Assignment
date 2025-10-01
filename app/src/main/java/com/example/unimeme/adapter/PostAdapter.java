@@ -1,4 +1,4 @@
-package com.example.unimeme;
+package com.example.unimeme.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,13 +8,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.unimeme.Post;
+import com.example.unimeme.R;
+
 import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.VH> {
 
+    // notifying when a post is changed
     public interface OnPostChanged { void onChanged(Post post); }
     private final List<Post> items;
-    private final OnPostChanged cb;
+    private final OnPostChanged cb; // callback for post changes
 
     public PostAdapter(List<Post> items, OnPostChanged cb) {
         this.items = items; this.cb = cb;
@@ -25,19 +30,25 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.VH> {
         return new VH(v);
     }
 
+    // binds data from a Post object to the views
     @Override public void onBindViewHolder(@NonNull VH h, int pos) {
         Post p = items.get(pos);
         h.tvUser.setText("@"+p.username);
         h.iv.setImageResource(p.imageRes);
+        // Show likes count using a string resource
         h.tvLikes.setText(h.itemView.getContext().getString(R.string.likes, p.likes));
 
+        // Update like/unlike button UI based on post state
         updateLikeUi(h, p);
 
+        // Handle like button click
         h.btnLike.setOnClickListener(v -> {
             if (p.liked) {
+                // If already liked, unlike and decrement likes
                 if (p.likes > 0) p.likes -= 1;
                 p.liked = false;
             } else {
+                // If not liked yet, like and increment likes
                 p.likes += 1;
                 p.liked = true;
             }

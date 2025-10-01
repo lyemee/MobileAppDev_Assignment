@@ -2,17 +2,18 @@ package com.example.unimeme;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.content.Intent;
 
+// Allows user to edit and save their account info
 public class AccountActivity extends AppCompatActivity {
-    private EditText etDisplay, etBio;
-    private CheckBox cbPrivate;
+    private EditText etDisplay, etBio; // input fields for display name and bio
+    private CheckBox cbPrivate; // checkbox
 
+    // Keys for saving/restoring instance state and SharedPreferences
     private static final String K_DISPLAY = "k_display";
     private static final String K_BIO = "k_bio";
     private static final String K_PRIV = "k_priv";
@@ -22,6 +23,7 @@ public class AccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
+        // Bind UI elements
         etDisplay = findViewById(R.id.etDisplayName);
         etBio = findViewById(R.id.etBio);
         cbPrivate = findViewById(R.id.cbPrivate);
@@ -36,6 +38,7 @@ public class AccountActivity extends AppCompatActivity {
             cbPrivate.setChecked(Prefs.get(this).getBoolean(K_PRIV, false));
         }
 
+        // Save button: stores account data in SharedPreferences
         Button save = findViewById(R.id.btnSave);
         save.setOnClickListener(v -> {
             Prefs.get(this).edit()
@@ -46,12 +49,17 @@ public class AccountActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.toast_saved), Toast.LENGTH_SHORT).show();
         });
 
+        // Navigate back to the "For You" feed
         findViewById(R.id.btnBackToFeed).setOnClickListener(v ->
                 startActivity(new Intent(this, ForYouActivity.class))
         );
+
+        // Navigate to leaderboard activity
         findViewById(R.id.btnToLeader).setOnClickListener(v ->
                 startActivity(new Intent(this, LeaderboardActivity.class))
         );
+
+        // Sign-out button logic
         findViewById(R.id.btnSignOut).setOnClickListener(v -> {
             // 1) Turn off auto sign-in
             Prefs.get(this).edit()

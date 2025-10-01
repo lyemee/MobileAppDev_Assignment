@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText etUsername;
-    private CheckBox cbKeep;
+    private CheckBox cbKeep; // Checkbox for "keep signed in"
     private static final String KEY_USERNAME = "key_username";
     private static final String KEY_KEEP    = "key_keep_signed_in";
 
@@ -17,15 +17,17 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // If previously chose to keep signed in and we have a username, skip login.
+        // If user has chosen to stay signed in and username exists, skip login screen
         boolean keepSignedIn = Prefs.get(this).getBoolean(KEY_KEEP, false);
         String savedUser = Prefs.get(this).getString(KEY_USERNAME, null);
         if (keepSignedIn && savedUser != null && !savedUser.trim().isEmpty()) {
+            // Go directly to ForYouActivity
             startActivity(new Intent(this, ForYouActivity.class));
             finish();
             return;
         }
 
+        // Otherwise, show login screen
         setContentView(R.layout.activity_login);
 
         etUsername = findViewById(R.id.etUsername);
@@ -39,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         // Restore checkbox (default false if never set)
         cbKeep.setChecked(Prefs.get(this).getBoolean(KEY_KEEP, false));
 
+        // Login button click listener
         btn.setOnClickListener(v -> {
             String name = etUsername.getText().toString().trim();
 
@@ -47,9 +50,8 @@ public class LoginActivity extends AppCompatActivity {
                     .putBoolean(KEY_KEEP, cbKeep.isChecked())
                     .apply();
 
+            // Navigate to the personalized feed (ForYouActivity)
             startActivity(new Intent(this, ForYouActivity.class));
-            // Do not finish() here if you want Back to return to Login;
-            // use finish() if you prefer not to return.
         });
     }
 }
