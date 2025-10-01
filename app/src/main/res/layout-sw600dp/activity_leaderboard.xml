@@ -1,0 +1,35 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical" android:padding="@dimen/m_lg"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical" android:layout_gravity="center"
+            android:layout_width="@dimen/max_content_width" android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/title_leaderboard" android:textStyle="bold"
+                android:textSize="24sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:orientation="horizontal" android:layout_marginTop="@dimen/m_sm"
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView
+                    android:text="@string/label_period"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <Spinner
+                    android:id="@+id/spPeriod"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="@dimen/m_sm"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvDummyRank"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m_md"
+                android:textSize="@dimen/t_body"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

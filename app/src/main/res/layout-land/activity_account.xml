@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:padding="@dimen/p_screen"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="320dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="@string/title_account" android:textStyle="bold"
+            android:textSize="@dimen/t_title"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <ImageView
+            android:src="@mipmap/ic_launcher_round" android:contentDescription="@string/logo_desc"
+            android:layout_width="96dp" android:layout_height="96dp"
+            android:layout_marginTop="@dimen/m_md"/>
+        <TextView android:id="@+id/tvDisplayName"
+            android:text="Victoria"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m_sm"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="0dp" android:layout_height="match_parent"
+        android:layout_weight="1" android:layout_marginStart="@dimen/m_md">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <TextView android:text="@string/label_email"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/tvEmail"
+                android:text="victoria@msu.edu"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:text="@string/label_xp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m_sm"/>
+            <TextView android:id="@+id/tvXp"
+                android:text="123"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="@string/label_nickname"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m_md"/>
+            <EditText
+                android:id="@+id/etNickname"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/btnSaveNick"
+                android:text="@string/btn_save"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m_sm"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

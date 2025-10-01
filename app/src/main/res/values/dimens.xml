@@ -1,0 +1,6 @@
+<resources>
+    <dimen name="p_screen">16dp</dimen>
+    <dimen name="m_sm">8dp</dimen>
+    <dimen name="m_md">16dp</dimen>
+    <dimen name="t_title">22sp</dimen>
+</resources>

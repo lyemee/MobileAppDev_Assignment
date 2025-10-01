@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Unimeme</string>
+
+    <!-- Login -->
+    <string name="hint_email">your_id@msu.edu</string>
+    <string name="hint_password">Password</string>
+    <string name="label_auto_login">Auto login next time</string>
+    <string name="btn_login">Login</string>
+
+    <!-- For You -->
+    <string name="title_feed">For You</string>
+    <string name="btn_account">Account</string>
+    <string name="btn_leaderboard">Leaderboard</string>
+    <string name="btn_logout">Logout</string>
+    <string name="feed_placeholder">(피드 내용 자리)</string>
+
+    <!-- Account / Leaderboard -->
+    <string name="title_account">Account</string>
+    <string name="account_placeholder">계정 화면 예시</string>
+    <string name="title_leaderboard">Leaderboard</string>
+    <string name="leaderboard_placeholder">리더보드 화면 예시</string>
+</resources>
