@@ -1,55 +1,98 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:padding="@dimen/p_screen"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:saveEnabled="true">
 
     <LinearLayout
-        android:orientation="vertical" android:layout_width="320dp"
-        android:layout_height="match_parent">
-        <TextView
-            android:text="@string/title_account" android:textStyle="bold"
-            android:textSize="@dimen/t_title"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-        <ImageView
-            android:src="@mipmap/ic_launcher_round" android:contentDescription="@string/logo_desc"
-            android:layout_width="96dp" android:layout_height="96dp"
-            android:layout_marginTop="@dimen/m_md"/>
-        <TextView android:id="@+id/tvDisplayName"
-            android:text="Victoria"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/m_sm"/>
-    </LinearLayout>
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ScrollView
-        android:layout_width="0dp" android:layout_height="match_parent"
-        android:layout_weight="1" android:layout_marginStart="@dimen/m_md">
+        <!-- 왼쪽: 프로필 -->
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent" android:layout_height="wrap_content">
-
-            <TextView android:text="@string/label_email"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-            <TextView android:id="@+id/tvEmail"
-                android:text="victoria@msu.edu"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-            <TextView android:text="@string/label_xp"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/m_sm"/>
-            <TextView android:id="@+id/tvXp"
-                android:text="123"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
-                android:text="@string/label_nickname"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/m_md"/>
-            <EditText
-                android:id="@+id/etNickname"
-                android:layout_width="match_parent" android:layout_height="wrap_content"/>
-            <Button
-                android:id="@+id/btnSaveNick"
-                android:text="@string/btn_save"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/m_sm"/>
+                android:text="@string/account_title"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="12dp"
+                android:src="@mipmap/ic_launcher_round"
+                android:contentDescription="@string/account_title"/>
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+
+        <!-- 오른쪽: 입력/버튼 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:paddingLeft="16dp">
+
+            <EditText
+                android:id="@+id/etDisplayName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/display_name"
+                android:saveEnabled="true"
+                android:layout_marginTop="12dp"/>
+
+            <EditText
+                android:id="@+id/etBio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/bio"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:saveEnabled="true"
+                android:layout_marginTop="8dp"/>
+
+            <CheckBox
+                android:id="@+id/cbPrivate"
+                android:text="@string/private_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:saveEnabled="true"
+                android:layout_marginTop="8dp"/>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:text="@string/save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+                <Button
+                    android:id="@+id/btnBackToFeed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/for_you_title"
+                    android:layout_weight="1"/>
+                <Button
+                    android:id="@+id/btnToLeader"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_leaderboard"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

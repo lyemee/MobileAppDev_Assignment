@@ -29,7 +29,7 @@ public class ForYouActivity extends AppCompatActivity {
 
         RecyclerView rv = findViewById(R.id.rvPosts);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(new PostAdapter(posts, post -> {
+        rv.setAdapter(new com.example.unimeme.PostAdapter(posts, post -> {
             // ★ 좋아요 수와 토글 상태를 모두 저장
             sp.edit()
                     .putInt("likes_" + post.id, post.likes)
