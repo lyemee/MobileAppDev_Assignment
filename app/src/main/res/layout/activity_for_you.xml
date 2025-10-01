@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:padding="@dimen/p_screen"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:text="@string/title_feed"
-        android:textStyle="bold"
-        android:textSize="@dimen/t_title"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:orientation="horizontal" android:layout_marginTop="@dimen/m_sm"
-        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:title="@string/app_name"
+            app:titleCentered="false"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
-        <Button
-            android:id="@+id/btnGoAccount"
-            android:text="@string/btn_account"
-            android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+    <!-- 내용 뷰는 반드시 이 behavior를 달아 AppBar 아래로 배치 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <Button
-            android:id="@+id/btnGoLeaderboard"
-            android:text="@string/btn_leaderboard"
-            android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:layout_marginStart="@dimen/m_sm"/>
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:text="@string/btn_logout"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/m_md"/>
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_logout"/>
 
-    <TextView
-        android:id="@+id/tvPlaceholder"
-        android:text="@string/feed_placeholder"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/m_md"/>
-</LinearLayout>
+            <TextView
+                android:id="@+id/tvPlaceholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/feed_placeholder"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
