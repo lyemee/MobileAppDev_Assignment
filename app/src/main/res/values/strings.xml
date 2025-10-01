@@ -1,10 +1,15 @@
 <resources>
     <string name="app_name">Unimeme</string>
 
+    <!-- Common / Accessibility -->
+    <string name="logo_desc">App logo</string>
+
     <!-- Login -->
+    <string name="login_title">UNIMEME @ MSU</string>
     <string name="hint_email">your_id@msu.edu</string>
     <string name="hint_password">Password</string>
     <string name="label_auto_login">Auto login next time</string>
+    <string name="label_geofence_inside">Geofence: Inside campus ✓</string>
     <string name="btn_login">Login</string>
 
     <!-- For You -->
@@ -14,9 +19,19 @@
     <string name="btn_logout">Logout</string>
     <string name="feed_placeholder">(피드 내용 자리)</string>
 
+    <!-- Item (post card) -->
+    <string name="likes_prefix">❤ </string>
+    <string name="btn_upvote">Upvote</string>
+
     <!-- Account / Leaderboard -->
     <string name="title_account">Account</string>
     <string name="account_placeholder">계정 화면 예시</string>
+    <string name="label_email">Email</string>
+    <string name="label_xp">XP</string>
+
     <string name="title_leaderboard">Leaderboard</string>
     <string name="leaderboard_placeholder">리더보드 화면 예시</string>
+    <string name="label_period">Period</string>
+    <string name="label_nickname">Nickname</string>
+    <string name="btn_save">Save</string>
 </resources>

@@ -1,6 +1,17 @@
 <resources>
+    <!-- paddings / margins -->
     <dimen name="p_screen">16dp</dimen>
+    <dimen name="p_card">12dp</dimen>
+    <dimen name="m_xs">4dp</dimen>
     <dimen name="m_sm">8dp</dimen>
     <dimen name="m_md">16dp</dimen>
+    <dimen name="m_lg">24dp</dimen>
+
+    <!-- text sizes -->
     <dimen name="t_title">22sp</dimen>
+    <dimen name="t_body">16sp</dimen>
+
+    <!-- components -->
+    <dimen name="img_card_h">180dp</dimen>
+    <dimen name="max_content_width">720dp</dimen>
 </resources>
