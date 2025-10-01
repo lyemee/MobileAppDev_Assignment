@@ -6,7 +6,7 @@ public class Post {
     public int likes;
     public int imageRes;
 
-    public boolean liked; // ★ 토글 상태
+    public boolean liked;
 
     public Post(String id, String username, int likes, int imageRes, boolean liked) {
         this.id = id;

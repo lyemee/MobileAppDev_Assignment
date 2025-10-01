@@ -26,7 +26,6 @@ public class AccountActivity extends AppCompatActivity {
         etBio = findViewById(R.id.etBio);
         cbPrivate = findViewById(R.id.cbPrivate);
 
-        // 복원: SharedPreferences -> savedInstanceState
         if (savedInstanceState != null) {
             etDisplay.setText(savedInstanceState.getString(K_DISPLAY, ""));
             etBio.setText(savedInstanceState.getString(K_BIO, ""));
@@ -53,12 +52,10 @@ public class AccountActivity extends AppCompatActivity {
         findViewById(R.id.btnToLeader).setOnClickListener(v ->
                 startActivity(new Intent(this, LeaderboardActivity.class))
         );
-// Replace your current Sign out onClick with this:
         findViewById(R.id.btnSignOut).setOnClickListener(v -> {
-            // 1) Turn off auto sign-in (you can also clear the username if you want)
+            // 1) Turn off auto sign-in
             Prefs.get(this).edit()
                     .putBoolean("key_keep_signed_in", false)
-                    // .remove("key_username")   // optional: uncomment to clear the saved username
                     .apply();
 
             // 2) Send the user to Login and clear the entire back stack
@@ -66,7 +63,7 @@ public class AccountActivity extends AppCompatActivity {
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(i);
 
-            // 3) Finish this activity (not strictly necessary after CLEAR_TASK, but safe)
+            // 3) Finish this activity
             finish();
         });
     }

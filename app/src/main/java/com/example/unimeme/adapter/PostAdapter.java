@@ -12,7 +12,6 @@ import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.VH> {
 
-    // ★ 콜백 시그니처 변경: 변경된 Post 전체를 넘김
     public interface OnPostChanged { void onChanged(Post post); }
     private final List<Post> items;
     private final OnPostChanged cb;
@@ -26,14 +25,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.VH> {
         return new VH(v);
     }
 
-    // onBindViewHolder 안의 바인딩 로직만 바꿔주면 됩니다.
     @Override public void onBindViewHolder(@NonNull VH h, int pos) {
         Post p = items.get(pos);
         h.tvUser.setText("@"+p.username);
         h.iv.setImageResource(p.imageRes);
         h.tvLikes.setText(h.itemView.getContext().getString(R.string.likes, p.likes));
 
-        // ★ 현재 상태에 따른 하트(♡/♥) + 라벨
         updateLikeUi(h, p);
 
         h.btnLike.setOnClickListener(v -> {
@@ -50,13 +47,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.VH> {
         });
     }
 
-    // ★ 하트/접근성 라벨 업데이트 헬퍼
     private void updateLikeUi(VH h, Post p) {
         String label = p.liked
                 ? "♥ " + h.itemView.getContext().getString(R.string.unlike)
                 : "♡ " + h.itemView.getContext().getString(R.string.like);
         h.btnLike.setText(label);
-        h.btnLike.setContentDescription(label); // 접근성
+        h.btnLike.setContentDescription(label);
     }
 
 

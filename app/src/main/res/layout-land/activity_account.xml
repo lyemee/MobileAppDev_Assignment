@@ -54,7 +54,6 @@
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"/>
 
-            <!-- Sign out button (same id across all layouts) -->
             <Button
                 android:id="@+id/btnSignOut"
                 android:text="@string/sign_out"

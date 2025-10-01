@@ -31,7 +31,6 @@
         app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
-    <!-- Keep me signed in BETWEEN username and continue -->
     <CheckBox
         android:id="@+id/cbKeepSignedIn"
         android:layout_width="wrap_content" android:layout_height="wrap_content"

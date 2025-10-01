@@ -26,7 +26,6 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
         Post p = data.get(pos);
         h.title.setText((pos+1)+". @"+p.username);
         h.subtitle.setText(h.itemView.getContext().getString(R.string.likes, p.likes));
-        // 간단한 아이콘 표시를 위해 itemView 앞에 작은 이미지 추가(옵션)
     }
 
     @Override public int getItemCount() { return data.size(); }
