@@ -1,37 +1,35 @@
 <resources>
-    <string name="app_name">Unimeme</string>
+    <string name="app_name">MemeBoard</string>
+    <string name="login_title">Log in</string>
+    <string name="hint_username">Username</string>
+    <string name="btn_login">Continue</string>
 
-    <!-- Common / Accessibility -->
+    <string name="for_you_title">For You</string>
+    <string name="nav_leaderboard">Leaderboard</string>
+    <string name="nav_account">Account</string>
+    <string name="like">Like</string>
+    <string name="likes">%1$d likes</string>
+
+    <string name="leaderboard_title">Top Memers</string>
+    <string name="refresh">Refresh</string>
+
+    <string name="account_title">My Account</string>
+    <string name="display_name">Display name</string>
+    <string name="save">Save</string>
+    <string name="private_account">Private account</string>
+    <string name="bio">Bio</string>
+
+    <string name="toast_saved">Saved</string>
+
+    <string name="title_account">My Account</string>
+    <string name="title_leaderboard">Top Memers</string>
+    <string name="label_period">Period</string>
     <string name="logo_desc">App logo</string>
-
-    <!-- Login -->
-    <string name="login_title">UNIMEME @ MSU</string>
-    <string name="hint_email">your_id@msu.edu</string>
-    <string name="hint_password">Password</string>
-    <string name="label_auto_login">Auto login next time</string>
-    <string name="label_geofence_inside">Geofence: Inside campus ✓</string>
-    <string name="btn_login">Login</string>
-
-    <!-- For You -->
-    <string name="title_feed">For You</string>
-    <string name="btn_account">Account</string>
-    <string name="btn_leaderboard">Leaderboard</string>
-    <string name="btn_logout">Logout</string>
-    <string name="feed_placeholder">(피드 내용 자리)</string>
-
-    <!-- Item (post card) -->
-    <string name="likes_prefix">❤ </string>
-    <string name="btn_upvote">Upvote</string>
-
-    <!-- Account / Leaderboard -->
-    <string name="title_account">Account</string>
-    <string name="account_placeholder">계정 화면 예시</string>
+    <string name="hint_email">Email</string>
+    <string name="label_auto_login">Auto login</string>
+    <string name="label_geofence_inside">I am on campus</string>
     <string name="label_email">Email</string>
     <string name="label_xp">XP</string>
-
-    <string name="title_leaderboard">Leaderboard</string>
-    <string name="leaderboard_placeholder">리더보드 화면 예시</string>
-    <string name="label_period">Period</string>
     <string name="label_nickname">Nickname</string>
     <string name="btn_save">Save</string>
 </resources>

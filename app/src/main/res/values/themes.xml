@@ -1,16 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.Unimeme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
+    <!-- Day theme -->
+    <style name="Theme.MemeApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- 템플릿이 참조하는 표준 키들까지 정의 -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+        <!-- 선택: 우리 커스텀 색 반영 -->
+        <item name="android:windowBackground">@color/md_bg</item>
+        <item name="android:statusBarColor">@color/purple_700</item>
     </style>
 </resources>

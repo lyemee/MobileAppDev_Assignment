@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.unimeme">
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Unimeme">
+        android:theme="@style/Theme.MemeApp">
 
-        <!-- 시작 화면 -->
+        <!-- 런처 액티비티: intent-filter가 있으므로 exported를 반드시 명시 -->
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -20,9 +19,9 @@
             </intent-filter>
         </activity>
 
-        <!-- 내부 화면들 -->
-        <activity android:name=".ForYouActivity" android:exported="false"/>
-        <activity android:name=".AccountActivity" android:exported="false"/>
-        <activity android:name=".LeaderboardActivity" android:exported="false"/>
+        <!-- intent-filter가 없다면 exported 생략 가능(기본값=false 취급) -->
+        <activity android:name=".ForYouActivity" />
+        <activity android:name=".LeaderboardActivity" />
+        <activity android:name=".AccountActivity" />
     </application>
 </manifest>

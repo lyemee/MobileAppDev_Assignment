@@ -1,34 +1,50 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/m_md">
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    card_view:cardUseCompatPadding="true">
 
     <LinearLayout
-        android:orientation="vertical" android:padding="@dimen/p_card"
-        android:layout_width="match_parent" android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/ivThumb"
-            android:layout_width="match_parent" android:layout_height="@dimen/img_card_h"
-            android:scaleType="centerCrop" android:src="@mipmap/ic_launcher"/>
+        android:padding="12dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tvCaption"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:textSize="@dimen/t_body" android:layout_marginTop="@dimen/m_sm"
-            android:text="Caption"/>
+            android:id="@+id/tvUsername"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="user123"/>
+
+        <ImageView
+            android:id="@+id/ivMeme"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"/>
 
         <LinearLayout
-            android:orientation="horizontal" android:layout_marginTop="@dimen/m_sm"
-            android:layout_width="match_parent" android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="8dp">
+
+            <Button
+                android:id="@+id/btnLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/like"/>
+
             <TextView
                 android:id="@+id/tvLikes"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="@string/likes_prefix"/>
-            <Button
-                android:id="@+id/btnUpvote"
-                android:text="@string/btn_upvote"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/m_md"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/likes"
+                android:layout_marginStart="12dp"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
