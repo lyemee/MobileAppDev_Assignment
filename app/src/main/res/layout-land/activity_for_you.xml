@@ -1,14 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- 왼쪽: 헤더 + 피드 -->
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:orientation="vertical">
+        android:layout_width="0dp" android:layout_height="match_parent"
+        android:layout_weight="2" android:orientation="vertical">
 
         <TextView
             android:id="@+id/tvHeader"
@@ -17,7 +13,7 @@
             android:textSize="22sp"
             android:padding="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPosts"
@@ -25,28 +21,21 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:saveEnabled="true"
-            android:scrollbars="vertical" />
+            android:scrollbars="vertical"/>
     </LinearLayout>
 
-    <!-- 오른쪽: 네비게이션 버튼 -->
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
+        android:layout_width="0dp" android:layout_height="match_parent"
+        android:layout_weight="1" android:orientation="vertical"
         android:padding="12dp">
 
         <Button
             android:id="@+id/btnLeaderboard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/nav_leaderboard" />
-
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/nav_leaderboard"/>
         <Button
             android:id="@+id/btnAccount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/nav_account"
-            android:layout_marginTop="8dp" />
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/nav_account" android:layout_marginTop="8dp"/>
     </LinearLayout>
 </LinearLayout>

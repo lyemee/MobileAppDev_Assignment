@@ -1,95 +1,76 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:saveEnabled="true">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fillViewport="true" android:saveEnabled="true">
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:padding="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal" android:padding="20dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
 
             <TextView
-                android:text="@string/account_title"
-                android:textStyle="bold"
-                android:textSize="24sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:text="@string/account_title" android:textStyle="bold"
+                android:textSize="24sp" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <ImageView
                 android:id="@+id/ivProfile"
-                android:layout_width="112dp"
-                android:layout_height="112dp"
+                android:layout_width="112dp" android:layout_height="112dp"
                 android:layout_marginTop="12dp"
                 android:src="@mipmap/ic_launcher_round"
-                android:contentDescription="@string/account_title" />
+                android:contentDescription="@string/account_title"/>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:orientation="vertical"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="2" android:orientation="vertical"
             android:paddingLeft="20dp">
 
             <EditText
                 android:id="@+id/etDisplayName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/display_name"
-                android:saveEnabled="true"
-                android:layout_marginTop="12dp"/>
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:hint="@string/display_name" android:layout_marginTop="12dp"
+                android:saveEnabled="true"/>
 
             <EditText
                 android:id="@+id/etBio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/bio"
-                android:inputType="textMultiLine"
-                android:minLines="3"
-                android:saveEnabled="true"
-                android:layout_marginTop="8dp"/>
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:hint="@string/bio" android:inputType="textMultiLine"
+                android:minLines="3" android:saveEnabled="true" android:layout_marginTop="8dp"/>
 
             <CheckBox
                 android:id="@+id/cbPrivate"
                 android:text="@string/private_account"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:saveEnabled="true"
-                android:layout_marginTop="8dp"/>
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:saveEnabled="true" android:layout_marginTop="8dp"/>
 
             <Button
                 android:id="@+id/btnSave"
                 android:text="@string/save"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"/>
 
+            <!-- Sign out button (same id across all layouts) -->
+            <Button
+                android:id="@+id/btnSignOut"
+                android:text="@string/sign_out"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"/>
+
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp">
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="12dp">
                 <Button
                     android:id="@+id/btnBackToFeed"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/for_you_title"
-                    android:layout_weight="1"/>
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:text="@string/for_you_title" android:layout_weight="1"/>
                 <Button
                     android:id="@+id/btnToLeader"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nav_leaderboard"
-                    android:layout_weight="1"/>
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:text="@string/nav_leaderboard" android:layout_weight="1"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

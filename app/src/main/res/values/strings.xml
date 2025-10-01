@@ -20,7 +20,7 @@
     <string name="bio">Bio</string>
 
     <string name="toast_saved">Saved</string>
-
+    <string name="sign_out">Sign out</string>
     <string name="title_account">My Account</string>
     <string name="title_leaderboard">Top Memers</string>
     <string name="label_period">Period</string>
